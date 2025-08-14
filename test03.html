@@ -3,15 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자바스크립트 입문 03</title>
+    <title>자바스크립트 리팩토링(2)</title>
+    <link rel="stylesheet" href="test02.css">
 </head>
 <body>
-    
-    <script>
-        let now = new Date();
-        let display = now.toLocaleTimeString();
-        document.write("현재 시각은 " +  display);
-    </script>
+    <h1>출석부 <div id="clock"></div></h1>
 
+    <!-- 문서내 js -->
+    <script>
+        document.write("<table>");
+        document.write("<colgroup><col style='width: 100px;'<col style=''</colgroup>");
+        document.write("<tr><td>No</td><td>이름</td></tr>");
+        document.write("<tbody id='list'></tbody>");
+
+        let tableRows = "";
+
+        for(let hakbun = 1; hakbun <= 14; hakbun++){
+            let myname = prompt(`
+                ${hakbun}번 학생 이름을 입력하세요.
+            `);
+            tableRows+=`
+                <tr>
+                    <td>${hakbun}</td>
+                    <td id='mynamepo${hakbun}'></td>
+                </tr>
+            `;
+        }
+
+        document.getElementById("list").innerHTML = tableRows;
+        document.write("</table>");
+    </script>
+    <!-- //문서내 js -->
+
+    <script src="test01.js"></script> <!-- 외부 js -->
 </body>
 </html>

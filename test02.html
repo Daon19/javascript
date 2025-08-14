@@ -3,18 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자바스크립트 입문 02</title>
+    <title>자바스크립트 리팩토링</title>
+    <link rel="stylesheet" href="test02.css">
 </head>
 <body>
+    <h1>출석부 <div id="clock"></div></h1>
+    <table>
+        <colgroup>
+            <col style="width: 100px;">
+            <col style="">
+        </colgroup>
+        <tr>
+            <td>No</td>
+            <td>이름</td>
+        </tr>
+        <!-- 문서내 js -->
+        <script>
+            let myname = prompt("이름을 입력하시오.");
 
-    
-    <script>
-        document.write("<h1>Hello world</h1>");
-        console.log("Hello world");
+             for(let hakbun = 1; hakbun <= 14; hakbun++){
+                document.write(`
+                    <tr>
+                        <td>${hakbun}</td>
+                        <td id='mynamepo${hakbun}'></td>
+                    </tr>
+                `);
+                document.getElementById("mynamepo1").innerHTML = myname;
+             }
+        </script>
+        <!-- //문서내 js -->
+    </table>
 
-        let name = prompt("이름을 입력하세요");
-        document.write(name + "입니다. 안녕하세요.");
-    </script>
-
+    <script src="test01.js"></script> <!-- 외부 js -->
 </body>
 </html>
